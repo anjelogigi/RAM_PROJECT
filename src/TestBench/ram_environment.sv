@@ -1,4 +1,3 @@
-
 `include "defines.svh"
 class ram_environment;
 
@@ -34,7 +33,7 @@ class ram_environment;
     mbx_rs=new();
     mbx_ms=new();
 
-  
+
     gen=new(mbx_gd);
     drv=new(mbx_gd,mbx_dr,drv_vif);
     mon=new(mon_vif,mbx_ms);
@@ -43,7 +42,7 @@ class ram_environment;
    end
   endtask
 
-  
+
    task start();
     fork
     gen.start();
@@ -55,4 +54,3 @@ class ram_environment;
     scb.compare_report();
    endtask
 endclass
-
