@@ -1,8 +1,7 @@
-
 `include "defines.svh"
 interface ram_if(input bit clk,reset);
   logic[7:0] data_in,data_out;
-  logic      write_enb,read_enb;
+  logic write_enb,read_enb;
   logic[4:0] address;
 
   clocking drv_cb@(posedge clk);
@@ -18,7 +17,7 @@ interface ram_if(input bit clk,reset);
 
   clocking ref_cb@(posedge clk);
     default input #0 output #0;
- 
+
   endclocking
 
   modport DRV(clocking drv_cb);
