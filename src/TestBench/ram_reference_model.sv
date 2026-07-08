@@ -1,4 +1,3 @@
-
 `include "defines.svh"
 class ram_reference_model;
 
@@ -22,7 +21,7 @@ class ram_reference_model;
       ref_trans=new();
       mbx_dr.get(ref_trans);
       repeat(1) @(vif.ref_cb)
-       begin 
+       begin
         if(ref_trans.write_enb)
          MEM[ref_trans.address]=ref_trans.data_in;
         $display("REFERENCE MODEL DATA IN MEMORY MEM[ADDRESS]=%d",MEM[ref_trans.address],$time);
@@ -31,7 +30,6 @@ class ram_reference_model;
         $display("REFERENCE MODEL DATA OUT FROM MEMORY data_out=%d",ref_trans.data_out,$time);
        end
       mbx_rs.put(ref_trans);
-     end 
+     end
   endtask
 endclass
- 
