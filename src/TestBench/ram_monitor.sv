@@ -1,7 +1,6 @@
-
 `include "defines.svh"
 class ram_monitor;
-  
+
     ram_transaction mon_trans;
     mailbox #(ram_transaction) mbx_ms;
     virtual ram_if.MON vif;
@@ -9,7 +8,6 @@ class ram_monitor;
   covergroup mon_cg;
     DATA_OUT: coverpoint mon_trans.data_out {bins  dout ={[0:255]};}
   endgroup
-
 
   function new( virtual ram_if.MON vif,
                 mailbox #(ram_transaction) mbx_ms);
@@ -19,7 +17,7 @@ class ram_monitor;
   endfunction
 
   task start();
-   repeat(4) @(vif.mon_cb); 
+   repeat(4) @(vif.mon_cb);
     for(int i=0;i<`no_of_trans;i++)
       begin
         mon_trans=new();
@@ -35,9 +33,4 @@ class ram_monitor;
         repeat(1) @(vif.mon_cb);
       end
   endtask
-endclass      
-
-
-
-
-
+endclass
